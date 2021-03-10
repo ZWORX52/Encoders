@@ -90,7 +90,8 @@ def _test_input_yes_no(prompt: str, tries: int = 5, fail_message: str = "{} are 
         print(fail_message.format(all_tries))
 
 
-def begin(s: str, types: str, encode_special_characters: bool = True) -> Union[tuple[str, list, int, int], str]:
+def begin(s: str, types: str, shuffled_list: list = 0, shuffle_key: int = 0, key: int = 3,  encode_special_characters:
+          bool = True) -> Union[tuple[str, list, int, int], str]:
     encodings = _get_reps(types, ["e", "d", "c", "b"], ["encoding", "decoding", "complex", "base64"])
     if encodings[0] == "" and encodings[1] == "" and encodings[2] != "":
         raise ValueError("You need to specify one of either decode or encode with complex")
@@ -100,12 +101,16 @@ def begin(s: str, types: str, encode_special_characters: bool = True) -> Union[t
         raise ValueError("Cannot encode and decode at the same time")
     elif encodings[3] != "" and encodings[2] != "":
         raise ValueError("Can't be complex and base64 at the same time!")
-    elif encodings[0] != "" and encodings[2] != "":
-        return _encode2(s, _get_max_char_len(s))
     elif encodings[0] != "" and encodings[2] == "" and encodings[3] != "":
         return _encode(s, _get_max_char_len(s), encode_special_characters)
+    elif encodings[0] != "" and encodings[2] != "":
+        return _encode2(s, _get_max_char_len(s))
     elif encodings[0] != "" and encodings[3] != "":
         return _base64encode(s)
+    elif encodings[1] != "" and encodings[2] == "":
+        return _decode(s, key)
+    elif encodings[1] != "" and encodings[2] != "":
+        return _decode2(s, key, shuffled_list, shuffle_key)
     elif encodings[1] != "" and encodings[3] != "":
         return _base64decode(s)
 

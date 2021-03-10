@@ -1,7 +1,3 @@
-import string
-from base64 import b64encode as b64e, b64decode as b64d
-from collections import deque
-from random import randint as r, randrange as rr
 from tkinter import *
 from tkinter import messagebox
 from encodelib import *
@@ -57,14 +53,14 @@ def decode_and_show():
         return
     if current_decode_choice.get() == "Normal":
         key = int(extra_info_s)
-        decode_outbox.insert(1.0, _decode(input_d_box.get(1.0, "end-1c"), key))
+        decode_outbox.insert(1.0, begin(input_d_box.get(1.0, "end-1c"), "d"), key)
     elif current_decode_choice.get() == "Complex":
         scrambled_nums_list = [int(i) for i in extra_info_s.split("\n")[0].split(",")]
         scramble_key = int(extra_info_s.split("\n")[1])
         key = int(extra_info_s.split("\n")[2])
-        decode_outbox.insert(1.0, _decode2(input_d_box.get(1.0, "end-1c"), key, scrambled_nums_list, scramble_key))
+        decode_outbox.insert(1.0, begin(input_d_box.get(1.0, "end-1c"), "dc", scrambled_nums_list, scramble_key, key))
     elif current_decode_choice.get() == "Base64":
-        decode_outbox.insert(1.0, b64d(input_d_box.get(1.0, "end-1c").encode()).decode())
+        decode_outbox.insert(1.0, begin(input_d_box.get(1.0, "end-1c"), "db"))
     decode_outbox.config(state="disabled")
 
 
@@ -82,7 +78,6 @@ def switch_to_encode():
         item_.grid()
 
 
-numbers_to_special_characters_key = [")", "!", "@", "#", "$", "%", "^", "&", "*", "("]
 if __name__ == '__main__':
     app = Tk()
     app.title("Encode/Decode")
