@@ -90,7 +90,7 @@ def _test_input_yes_no(prompt: str, tries: int = 5, fail_message: str = "{} are 
         print(fail_message.format(all_tries))
 
 
-def begin(s: str, types: str, shuffled_list: list = 0, shuffle_key: int = 0, key: int = 3,  encode_special_characters:
+def begin(s: str, types: str, /, shuffled_list: list = 0, shuffle_key: int = 0, key: int = 3, encode_special_characters:
           bool = True) -> Union[tuple[str, list, int, int], str]:
     encodings = _get_reps(types, ["e", "d", "c", "b"], ["encoding", "decoding", "complex", "base64"])
     if encodings[0] == "" and encodings[1] == "" and encodings[2] != "":
