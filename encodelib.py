@@ -23,7 +23,7 @@ def _encode(s, max_char_len: int, encode_special_characters=True):
                 encoded_return += _numbers_to_special_characters(str(ord(character)).zfill(max_char_len))
             else:
                 encoded_return += character
-    return encoded_return
+    return encoded_return, max_char_len
 
 
 def _decode(s, max_char_len_: int):
@@ -91,7 +91,7 @@ def _test_input_yes_no(prompt: str, tries: int = 5, fail_message: str = "{} are 
 
 
 def begin(s: str, types: str, /, shuffled_list: list = 0, shuffle_key: int = 0, key: int = 3, encode_special_characters:
-          bool = True) -> Union[tuple[str, list, int, int], str]:
+          bool = True) -> Union[tuple[str, int], tuple[str, list, int, int], str]:
     encodings = _get_reps(types, ["e", "d", "c", "b"], ["encoding", "decoding", "complex", "base64"])
     if encodings[0] == "" and encodings[1] == "" and encodings[2] != "":
         raise ValueError("You need to specify one of either decode or encode with complex")
