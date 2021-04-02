@@ -101,7 +101,7 @@ def begin(s: str, types: str, /, shuffled_list: list = 0, shuffle_key: int = 0, 
         raise ValueError("Cannot encode and decode at the same time")
     elif encodings[3] != "" and encodings[2] != "":
         raise ValueError("Can't be complex and base64 at the same time!")
-    elif encodings[0] != "" and encodings[2] == "" and encodings[3] != "":
+    elif encodings[0] != "" and encodings[2] == "" and encodings[3] == "":
         return _encode(s, _get_max_char_len(s), encode_special_characters)
     elif encodings[0] != "" and encodings[2] != "":
         return _encode2(s, _get_max_char_len(s))
