@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Math Stuff" />
     <orderEntry type="module" module-name="AlgebraSolver" />
+    <orderEntry type="module" module-name="FunWithBenji" />
   </component>
 </module>

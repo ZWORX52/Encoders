@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../AlgebraSolver/.idea/AlgebraSolver.iml" filepath="$PROJECT_DIR$/../AlgebraSolver/.idea/AlgebraSolver.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Encoders.iml" filepath="$PROJECT_DIR$/.idea/Encoders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FunWithBenji/.idea/FunWithBenji.iml" filepath="$PROJECT_DIR$/../FunWithBenji/.idea/FunWithBenji.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../For pycharm/Math Stuff/.idea/Math Stuff.iml" filepath="$PROJECT_DIR$/../../../For pycharm/Math Stuff/.idea/Math Stuff.iml" />
     </modules>
   </component>
