@@ -5,8 +5,5 @@
     <orderEntry type="jdk" jdkName="Python 3.9 (Math Stuff)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Math Stuff" />
-    <orderEntry type="module" module-name="AlgebraSolver" />
-    <orderEntry type="module" module-name="FunWithBenji" />
-    <orderEntry type="module" module-name="Maize" />
   </component>
 </module>
